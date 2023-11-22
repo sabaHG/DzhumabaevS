@@ -1,0 +1,25 @@
+{% include 'header_and_footer/header.html' %}
+<br>
+<div class="container my-5 mt-4">
+  {% for i in string_ %}
+  <h2>{{i.title}}!</h2>
+  <p>{{i.description}}.</p>
+  {% endfor %}
+  <div class="row">
+      {% for j in car_list %}
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{{j.image.url}}" class="card-img-top" alt="Изображение 1">
+        <div class="card-body">
+          <h5 class="card-title">{{j.title}}</h5>
+          <p class="card-text">{{j.description}}</p>
+          <a href="/car_detail/{{j.id}}/" class="btn btn-primary">Узнать больше</a>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+  </div>
+</div>
+<a href="{% url 'detail' %}">Детали</a>
+{% include 'header_and_footer/footer.html' %}
+
